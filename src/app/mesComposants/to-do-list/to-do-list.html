@@ -1,0 +1,27 @@
+
+
+@if (showDone) {
+    <th>
+        <button id= "Undone" [routerLink]="[ '/to-do-list']"
+        [queryParams]="{done: false}"> <!-- 👈 -->
+            Cacher les Tâches
+        </button>
+    </th>
+}
+@else{
+    <th>
+        <button id="Done" [routerLink]="[ '/to-do-list']"
+        [queryParams]="{done: true}"> <!-- 👈 -->
+        Montrer les Tâches
+        </button>
+    </th>
+}
+
+<table>
+        @if (showDone) {
+            @for (task of tasks; track task){
+                <li>{{task.id}} {{task.libelle}} {{task.description}} {{task.done}}</li>
+            }
+        }
+</table>
+
