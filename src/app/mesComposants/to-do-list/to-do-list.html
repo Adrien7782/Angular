@@ -1,27 +1,45 @@
+<section class="tasks-view" aria-live="polite">
+    <header class="tasks-view__header">
+        <div>
+            <p class="tasks-view__status">
+                @if (filter === 'todo') {
+                    Affichage des taches a faire
+                }
+                @else if (filter === 'done') {
+                    Affichage des taches realisees
+                }
+                @else {
+                    Affichage de toutes les taches
+                }
+            </p>
+            <p class="tasks-view__hint">Utilisez le filtre pour cibler rapidement les taches souhaitees.</p>
+        </div>
 
+        <label class="tasks-view__filter">
+            <span>Filtrer par etat :</span>
+            <select
+                #filterSelect
+                class="tasks-view__select"
+                (change)="onFilterChange(filterSelect.value)"
+                [value]="filter"
+            >
+                <option value="todo">A faire uniquement</option>
+                <option value="done">Realisees uniquement</option>
+                <option value="all">Toutes les taches</option>
+            </select>
+        </label>
+    </header>
 
-@if (showDone) {
-    <th>
-        <button id= "Undone" [routerLink]="[ '/to-do-list']"
-        [queryParams]="{done: false}"> <!-- 👈 -->
-            Cacher les Tâches
-        </button>
-    </th>
-}
-@else{
-    <th>
-        <button id="Done" [routerLink]="[ '/to-do-list']"
-        [queryParams]="{done: true}"> <!-- 👈 -->
-        Montrer les Tâches
-        </button>
-    </th>
-}
-
-<table>
-        @if (showDone) {
-            @for (task of tasks; track task){
-                <li>{{task.id}} {{task.libelle}} {{task.description}} {{task.done}}</li>
-            }
+    <ul class="tasks-view__list">
+        @for (mytask of tasks; track mytask.id) {
+            <li class="tasks-view__item">
+                <app-tache [task]="mytask" (compteur)="toggle(mytask.id)"></app-tache>
+            </li>
         }
-</table>
-
+        @empty {
+            <li class="tasks-view__empty">
+                <p>Aucune tache a afficher pour le moment.</p>
+            </li>
+        }
+    </ul>
+</section>

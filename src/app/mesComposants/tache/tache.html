@@ -1,0 +1,24 @@
+<article class="task-card" [class.task-card--done]="task().done">
+    <header class="task-card__header">
+        <span class="task-card__badge">Tache #{{ task().id }}</span>
+        <span class="task-card__status" [attr.data-state]="task().done ? 'done' : 'todo'">
+            {{ task().done ? 'Terminee' : 'A faire' }}
+        </span>
+    </header>
+
+    <h3 class="task-card__title">{{ task().libelle }}</h3>
+    <p class="task-card__description">
+        {{ task().description }}
+    </p>
+
+    <footer class="task-card__footer">
+        <button
+            type="button"
+            class="task-card__action"
+            (click)="toggleTask()"
+            [attr.aria-pressed]="task().done"
+        >
+            {{ task().done ? 'Annuler' : 'Marquer comme fait' }}
+        </button>
+    </footer>
+</article>

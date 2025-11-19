@@ -1,9 +1,80 @@
-<h1>Les Compétences d'{{prenom}} {{nom}}</h1>
-<table>
-    @for (competence of mesCompetences; track competence){
-        <tr>{{competence.categorie}}: {{competence.valeurs}}</tr>
-    }
-    @empty {
-        <h2>Vous n'avez pas de compétences</h2>
-    }
-</table>
+<section class="presentation">
+  <div class="presentation-header">
+    <div>
+      <p class="hello">Bonjour, moi c’est</p>
+      <h1>{{ prenom }} {{ nom }}</h1>
+      <h2>{{ titre }}</h2>
+    </div>
+  </div>
+
+  <p class="accroche">
+    {{ accroche }}
+  </p>
+
+  <div class="presentation-grid">
+    <!-- Parcours d'étude -->
+    <section class="bloc bloc-parcours">
+      <h3>Mon parcours d’étude</h3>
+      <ul>
+        @for (etape of parcours; track etape){
+            <li>
+                <div class="annee">{{ etape.annee }}</div>
+                <div class="contenu">
+                    <div class="intitule">{{ etape.intitule }}</div>
+                    <p class="details">
+                        {{ etape.details }}
+                    </p>
+                    <!-- <div class="mots_clé">{{etape.mots_cles}}></div> -->
+                    <div class="lieu">{{ etape.lieu }}</div>
+                </div>
+            </li>
+        }
+      </ul>
+    </section>
+
+    <!-- Coordonnées -->
+    <section class="bloc bloc-coordonnees">
+      <h3>Mes coordonnées</h3>
+      <ul class="coordonnees-liste">
+        <li>
+          <span class="label">Ville</span>
+          <span class="valeur">{{ coordonnees.ville }}</span>
+        </li>
+        <li>
+          <span class="label">Email</span>
+          <a class="valeur">
+            {{ coordonnees.email }}
+          </a>
+        </li>
+        <li>
+          <span class="label">Téléphone</span>
+          <a class="valeur">
+            {{ coordonnees.telephone }}
+          </a>
+        </li>
+        @if (coordonnees.linkedin){
+            <li>
+                <span class="label">LinkedIn</span>
+                <a class="valeur"
+                    [href]="coordonnees.linkedin"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Voir mon profil
+                </a>
+            </li>
+        }
+        @if(coordonnees.github){
+            <li>
+                <span class="label">GitHub</span>
+                <a class="valeur"
+                    [href]="coordonnees.github"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Mes projets
+                </a>
+            </li>
+        }
+      </ul>
+    </section>
+  </div>
+</section>

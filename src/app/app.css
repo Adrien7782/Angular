@@ -1,0 +1,26 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    padding: 2rem 1.5rem 3rem;
+    background: radial-gradient(circle at top, #213547 0%, #0d1422 60%, #05070d 100%);
+    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    color: #e2e8f0;
+}
+
+.app-shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.app-content {
+    flex: 1;
+}
+
+@media (max-width: 640px) {
+    :host {
+        padding: 1.25rem 1rem 2rem;
+    }
+}

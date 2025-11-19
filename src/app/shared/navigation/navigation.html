@@ -1,11 +1,25 @@
-<div class="nav">
-    <a  routerLink="/to-do-list"
-    routerLinkActive="active">
-        TÃ¢ches
-    </a>
+<nav class="nav" aria-label="Navigation principale">
+    <div class="nav__brand">
+        <a routerLink="/" class="nav__brand-link" aria-label="Retour à l'accueil">
+            MonProjet
+        </a>
+        <p class="nav__tagline">Organisez vos idées et vos tâches</p>
+    </div>
 
-    <a  routerLink="/presentation"
-    routerLinkActive="active">
-        A propos
-    </a>
-</div>
+    <ul class="nav__links">
+        @for (link of links; track link.route) {
+            <li>
+                <a
+                    class="nav__link"
+                    routerLink="{{ link.route }}"
+                    routerLinkActive="nav__link--active"
+                    [routerLinkActiveOptions]="{ exact: link.exact ?? false }"
+                    [attr.aria-label]="link.description"
+                >
+                    <span class="nav__link-label">{{ link.label }}</span>
+                    <small class="nav__link-description">{{ link.description }}</small>
+                </a>
+            </li>
+        }
+    </ul>
+</nav>

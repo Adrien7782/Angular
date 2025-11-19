@@ -1,0 +1,163 @@
+.presentation {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.presentation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hello {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.7;
+  margin: 0 0 0.25rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0.3rem 0 0;
+  opacity: 0.85;
+}
+
+.accroche {
+  margin: 1rem 0 2rem;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.presentation-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+  gap: 1.5rem;
+}
+
+.bloc {
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(6px);
+  background-color: #d7cdc3;
+  box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.bloc h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.bloc-parcours ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bloc-parcours li {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 0.5rem 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.bloc-parcours li:last-child {
+  border-bottom: none;
+}
+
+.annee {
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.intitule {
+  font-weight: 600;
+}
+
+.lieu {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.details {
+  font-size: 0.9rem;
+  margin: 0.3rem 0 0;
+}
+
+.coordonnees-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.coordonnees-liste li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.coordonnees-liste li + li {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.label {
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.valeur {
+  text-align: right;
+  word-break: break-all;
+}
+
+a.valeur {
+  text-decoration: none;
+}
+
+a.valeur:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .presentation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .coordonnees-liste li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .valeur {
+    text-align: left;
+  }
+}
+
+.bloc {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #1e1f4b, #343e8b 55%, #4b7bec);
+    color: #f5f5f5;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    gap: 1.5rem;
+}

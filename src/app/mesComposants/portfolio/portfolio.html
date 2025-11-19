@@ -1,0 +1,9 @@
+<h1>Mon Portfolio</h1>
+<table>
+    @for (competence of mesCompetences; track competence){
+        <tr>{{competence.categorie}}: {{competence.valeurs}}</tr>
+    }
+    @empty {
+        <h2>Vous n'avez pas de compétences</h2>
+    }
+</table>
