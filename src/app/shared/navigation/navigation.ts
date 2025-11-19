@@ -14,6 +14,7 @@ type NavigationLink = {
   templateUrl: './navigation.html',
   styleUrl: './navigation.css',
 })
+
 export class Navigation {
   protected readonly links: NavigationLink[] = [
     {
